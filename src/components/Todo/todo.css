@@ -1,0 +1,25 @@
+.todo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #25264d;
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+div.todo + div.todo {
+  margin-top: 10px;
+}
+.todo-info{
+  display: flex;
+  flex-direction: column;
+}
+.todo-info-title{
+  margin: 0px;
+}
+.todo-date{
+  position: relative;
+  bottom: -10px;
+  font-size: 0.8rem;
+}
