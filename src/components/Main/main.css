@@ -8,6 +8,17 @@ body{
   justify-content: center;
   align-items: center;
 }
+.main-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+}
+.add-todo{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .submit-input{
   background-color: white;
   color: #000000;
@@ -35,4 +46,5 @@ body{
 }
 .todos{
   margin-top: 20px;
+  width: 100%;
 }

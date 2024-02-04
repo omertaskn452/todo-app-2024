@@ -23,3 +23,7 @@ div.todo + div.todo {
   bottom: -10px;
   font-size: 0.8rem;
 }
+.todo-info-icons{
+  display: flex;
+  flex-direction: row;
+}
