@@ -21,7 +21,7 @@ export default function Main() {
     setTodos(
       [
         ...todos,
-        {todoName: newTodoName, id: nanoid(), date: date, time: time}
+        {todoName: newTodoName, id: nanoid(), isUpdating: false ,date: date, time: time}
       ]
     );
   }
@@ -31,7 +31,23 @@ export default function Main() {
       todos.filter(todo => 
         todo.id !== id)
     )
-    console.log("todo was deleted")
+  }
+
+  const toggleIsUpdating = (id) => {
+    setTodos(prevState => {
+      return prevState.map(todo => {
+        return (todo.id === id ? {...todo, isUpdating: !todo.isUpdating} : todo)
+      })
+    }) 
+  }
+
+  const updateTodo = (id) => {
+    toggleIsUpdating(id)
+    setTodos(prevState => {
+      return prevState.map(todo => {
+        return (todo.id === id ? {...todo, todoName: todo.value} : todo)
+      })
+    })
   }
 
   let todoElements = todos.map((todo) => 
@@ -40,7 +56,10 @@ export default function Main() {
       id={todo.id}
       date={todo.date}
       time={todo.time}
+      isUpdating={todo.isUpdating}
       deleteTodo={deleteTodo}
+      toggleIsUpdating={toggleIsUpdating}
+      updateTodo={updateTodo}
     />  
   )
 

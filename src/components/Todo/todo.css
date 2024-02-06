@@ -14,9 +14,21 @@ div.todo + div.todo {
 .todo-info{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding-right: 20px;
 }
 .todo-info-title{
   margin: 0px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 0px;
+  font-size: 1rem;
+  resize: none;
+}
+textarea::-webkit-scrollbar{
+  width: 0px;
 }
 .todo-date{
   position: relative;
@@ -26,4 +38,17 @@ div.todo + div.todo {
 .todo-info-icons{
   display: flex;
   flex-direction: row;
+}
+.todo-info-icons-disabled{
+  display: none;
+}
+.todo-info-updating-disabled{
+  display: none;
+}
+.todo-info-update-button{
+  background-color: blueviolet;
+  color: white;
+  border: 1px solid white;
+  height: 30px;
+  border-radius: 5px;
 }
