@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import style from "./main.css"
 import DeleteIcon from "../icons/DeleteIcon/DeleteIcon";
 import EditIcon from "../icons/EditIcon/EditIcon";
@@ -18,12 +18,18 @@ export default function Main() {
   const addingNewTodo = () => {
     const date = new Date().toLocaleDateString()
     const time = new Date().toLocaleTimeString()
-    setTodos(
-      [
-        ...todos,
-        {todoName: newTodoName, id: nanoid(), isUpdating: false ,date: date, time: time}
-      ]
-    );
+    if(newTodoName){
+      setTodos(
+        [
+          ...todos,
+          {todoName: newTodoName, id: nanoid(), isUpdating: false ,date: date, time: time}
+        ]
+      );
+    }
+    else{
+      alert("Todo name must not be empty")
+    }
+    
   }
 
   const deleteTodo = (id) => {
@@ -41,13 +47,32 @@ export default function Main() {
     }) 
   }
 
-  const updateTodo = (id) => {
-    toggleIsUpdating(id)
+  const handleTextAreaChange = (id, value) => {
     setTodos(prevState => {
       return prevState.map(todo => {
-        return (todo.id === id ? {...todo, todoName: todo.value} : todo)
+        return todo.id === id ? {...todo, todoName:value} : todo
       })
-    })
+    }
+    )
+  }
+
+  const updateTodo = (id) => {
+   if((todos.find(todo => todo.id === id).todoName.trim().length) === 0){
+    alert("Todo name must not be empty")
+   }
+   else(
+    toggleIsUpdating(id)
+   )
+  }
+
+  const showTodos = () => {
+    todos.map(todo => (console.log(todo)))
+  }
+
+  const handleKeyDown = (e) => {
+    if(e.key === "Enter"){
+      addingNewTodo();
+    }
   }
 
   let todoElements = todos.map((todo) => 
@@ -60,6 +85,7 @@ export default function Main() {
       deleteTodo={deleteTodo}
       toggleIsUpdating={toggleIsUpdating}
       updateTodo={updateTodo}
+      handleTextAreaChange={handleTextAreaChange}
     />  
   )
 
@@ -75,13 +101,17 @@ export default function Main() {
             id=""
             value={newTodoName}
             onChange={e => setNewTodoName(e.target.value)}
-            placeholder="Add new todo" />
-            
-          <button onClick={addingNewTodo} className="submit-button">ADD</button>
+            onKeyDown={handleKeyDown}
+            placeholder="Add new todo"/>
+          <button 
+            onClick={addingNewTodo} 
+            className="submit-button">ADD</button>
         </div>
         <div className="todos">
           {todoElements}
         </div>
+        {/* This button just using for test when developing the app */}
+        <button onClick={showTodos} className="show-todos-button">Show Todos</button>
       </div>
     </div>
   )
