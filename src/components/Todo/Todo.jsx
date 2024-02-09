@@ -10,16 +10,22 @@ export default function Todo(props) {
   const handleChange = (e) => {
     props.handleTextAreaChange(props.id, e.target.value)
   }
-
+/* 
   const handleKeyDown = (e) => {
     if(e.key === "Enter"){
       props.updateTodo(props.id);
     }
+  } */
+
+  const handleFocus = () => {
+    setTimeout(() => {
+      textAreaRef.current.focus();
+    },100)
   }
 
   useEffect(() => {
     textAreaRef.current.style.height = "auto"
-    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+    textAreaRef.current.style.height = (textAreaRef.current.scrollHeight + 2) + "px";
   },[props.name])
  
   /* const showProps = () => {
@@ -30,22 +36,25 @@ export default function Todo(props) {
   return(
     <div className="todo">
       <div className="todo-info">
-        <textarea className="todo-info-title"
+        <textarea className={`${props.isUpdating ? 'todo-info-title-enabled' : 'todo-info-title'}`}
           value={props.name}
           disabled={props.isUpdating ? false : true}
           onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          /* onKeyDown={handleKeyDown} */
           ref={textAreaRef}
-          rows="1"
+          rows={1}
+          onFocus={(e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
         />
         <span className="todo-date">{props.date} {props.time}</span>
         {/* <button onClick={showProps}>show</button> */}
       </div>
       <div className={`${props.isUpdating ? 'todo-info-icons-disabled' : 'todo-info-icons'}`}>
-        <div onClick={()=>props.toggleIsUpdating(props.id)}>
+        <div className="todo-info-icon-wrapper" onClick={(e) => {
+          props.toggleIsUpdating(props.id)
+          handleFocus()}}>
           <EditIcon/>
         </div>
-        <div onClick={()=>props.deleteTodo(props.id)}>
+        <div className="todo-info-icon-wrapper" onClick={()=>props.deleteTodo(props.id)}>
           <DeleteIcon/>  
         </div>
       </div>

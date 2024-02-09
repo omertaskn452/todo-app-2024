@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #25264d;
-  padding: 15px;
+  padding: 10px 0px 10px 10px;
   border: 1px solid white;
   border-radius: 10px;
 }
@@ -15,32 +15,62 @@ div.todo + div.todo {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-right: 20px;
 }
 .todo-info-title{
   margin: 0px;
   width: 100%;
   background-color: transparent;
-  border: none;
-  color: white;
-  padding: 0px;
+  color: rgb(255, 255, 255);
+  padding: 5px;
   font-size: 1rem;
+  border: none;
   resize: none;
+  outline: none;
+}
+.todo-info-title-enabled{
+  margin: 0px;
+  width: 100%;
+  height: auto;
+  background-color: #7C7EFF;
+  color: #101133;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #A1A2F6;
+  resize: none;
+  outline: none;
 }
 textarea::-webkit-scrollbar{
   width: 0px;
 }
 .todo-date{
   position: relative;
-  bottom: -10px;
+  bottom: -5px;
+  left: 5px;
   font-size: 0.8rem;
 }
 .todo-info-icons{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  padding: 0px 15px;
 }
 .todo-info-icons-disabled{
   display: none;
+}
+.todo-info-icon-wrapper{
+  display: flex;
+  align-items: center;
+}
+.todo-info-updating{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  padding: 0px 15px;
 }
 .todo-info-updating-disabled{
   display: none;
