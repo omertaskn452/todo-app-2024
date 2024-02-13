@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState} from "react";
 import style from "./todo.css"
 import DeleteIcon from "../icons/DeleteIcon/DeleteIcon";
 import EditIcon from "../icons/EditIcon/EditIcon";
+import AcceptIcon from "../icons/AcceptIcon/AcceptIcon";
 
 export default function Todo(props) {
 
@@ -60,6 +61,9 @@ export default function Todo(props) {
       </div>
       <div className={`${props.isUpdating ? 'todo-info-updating' : 'todo-info-updating-disabled'}`}>
         <button onClick={()=>props.updateTodo(props.id)} className="todo-info-update-button">UPDATE</button>
+        <div className="todo-info-icon-wrapper" onClick={()=>props.updateTodo(props.id)}>
+          <AcceptIcon/>
+        </div>
       </div>
     </div>
   )

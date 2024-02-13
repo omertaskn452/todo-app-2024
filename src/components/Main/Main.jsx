@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 import style from "./main.css"
 import DeleteIcon from "../icons/DeleteIcon/DeleteIcon";
 import EditIcon from "../icons/EditIcon/EditIcon";
+import AcceptIcon from "../icons/AcceptIcon/AcceptIcon";
 import Todo from "../Todo/Todo";
 import { nanoid } from "nanoid";
 

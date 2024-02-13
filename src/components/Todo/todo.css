@@ -82,3 +82,20 @@ textarea::-webkit-scrollbar{
   height: 30px;
   border-radius: 5px;
 }
+@media (max-width: 425px){
+  .todo-info-title{
+    padding: 5px 0px 5px 5px;
+  }
+  .todo-info-icons{
+    width: auto;
+    flex-direction: column;
+    padding: 0px 10px;
+  }
+  .todo-info-updating{
+    width: auto;
+    padding: 0px 10px;
+  }
+  .todo-info-update-button{
+    display: none;
+  }
+}

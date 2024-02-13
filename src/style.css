@@ -2,6 +2,10 @@
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
+body{
+  margin: 0;
+  padding: 0;
+}
 .todo-icon{
   width: 28px;
   height: 28px;
@@ -12,4 +16,26 @@
 .delete-icon{
   color: rgb(201, 0, 0);
   margin-left: 5px
+}
+.accept-icon{
+  
+}
+@media (max-width: 425px){
+  .todo-icon{
+    width: 24px;
+    height: 24px;
+  }
+  .edit-icon{
+    position: relative;
+    bottom: 3px;
+  }
+  .delete-icon{
+    position: relative;
+    top: 3px;
+    margin-left: 0px;
+  }
+  .accept-icon{
+    width: 40px;
+    height: 40px;
+  }
 }
