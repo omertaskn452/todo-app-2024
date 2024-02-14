@@ -27,12 +27,14 @@ export default function Todo(props) {
   useEffect(() => {
     textAreaRef.current.style.height = "auto"
     textAreaRef.current.style.height = (textAreaRef.current.scrollHeight + 2) + "px";
-  },[props.name])
+  },[props.name, props.toggleIsUpdating, props.screenSize])
  
   /* const showProps = () => {
     console.log(props.name)
   }
  */
+
+  console.log(props.screenSize.width)
 
   return(
     <div className="todo">
@@ -61,7 +63,7 @@ export default function Todo(props) {
       </div>
       <div className={`${props.isUpdating ? 'todo-info-updating' : 'todo-info-updating-disabled'}`}>
         <button onClick={()=>props.updateTodo(props.id)} className="todo-info-update-button">UPDATE</button>
-        <div className="todo-info-icon-wrapper" onClick={()=>props.updateTodo(props.id)}>
+        <div className="todo-info-icon-wrapper accept-wrapper" onClick={()=>props.updateTodo(props.id)}>
           <AcceptIcon/>
         </div>
       </div>

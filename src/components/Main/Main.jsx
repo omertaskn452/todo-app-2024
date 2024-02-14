@@ -12,9 +12,28 @@ export default function Main() {
 
   const [newTodoName, setNewTodoName] = useState("")
 
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  })
+
   useEffect (() => {
     localStorage.setItem("Todos", JSON.stringify(todos))
   }, [todos])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    } 
+    window.addEventListener("resize", handleResize)
+
+    return() => {
+      window.removeEventListener("resize", handleResize)
+    }
+  },[])
 
   const addingNewTodo = () => {
     const date = new Date().toLocaleDateString()
@@ -87,6 +106,7 @@ export default function Main() {
       toggleIsUpdating={toggleIsUpdating}
       updateTodo={updateTodo}
       handleTextAreaChange={handleTextAreaChange}
+      screenSize={screenSize}
     />  
   )
 
