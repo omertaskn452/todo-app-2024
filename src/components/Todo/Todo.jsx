@@ -38,7 +38,7 @@ export default function Todo(props) {
 
   return(
     <div className="todo">
-      <div className="todo-info">
+      <div className={`${props.isUpdating ? 'todo-info-enabled' : 'todo-info'}`}>
         <textarea className={`${props.isUpdating ? 'todo-info-title-enabled' : 'todo-info-title'}`}
           value={props.name}
           disabled={props.isUpdating ? false : true}

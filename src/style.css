@@ -13,13 +13,15 @@ body{
 }
 .edit-icon{
   color: rgb(2, 204, 86);
+  transition: all 0.2s linear;
 }
 .edit-icon:hover{
-  color: rgba(2, 204, 86, 0.85)
+  color: rgba(2, 204, 86, 0.80)
 }
 .delete-icon{
   color: rgb(201, 0, 0);
+  transition: all 0.2s linear;
 }
 .delete-icon:hover{
-  color: rgba(201, 0, 0, 0.85);
+  color: rgba(201, 0, 0, 0.80);
 }

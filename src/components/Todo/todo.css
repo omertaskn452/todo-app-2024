@@ -16,6 +16,29 @@ div.todo + div.todo {
   flex-direction: column;
   width: 100%;
 }
+.todo-info-enabled{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.todo-info-enabled::before{
+  content: "";
+  position: absolute;
+  left: 5px;
+  bottom: 1rem;
+  width: calc(100% - 10px);
+  border-bottom: 1px solid white;
+  animation-name: shape-div;
+  animation-duration: 0.2s;
+}
+@keyframes shape-div{
+  0% {width: 0%; margin:0 50%;}
+  25% {width: 25%; margin:0 37.5%;}
+  50% {width: 50%; margin:0 25%;}
+  75% {width: 75%; margin:0 12.5%;}
+  100% {width: calc(100%-10px);margin: 0;}
+}
 .todo-info-title{
   margin: 0px;
   width: 100%;
@@ -30,12 +53,11 @@ div.todo + div.todo {
 .todo-info-title-enabled{
   margin: 0px;
   width: 100%;
-  background-color: #4a4df7;
-  color: #e9e9e9;
+  background-color: transparent;
+  color: white;
   padding: 5px;
   font-size: 1rem;
-  border-radius: 10px;
-  border: 1px solid #a0a2ff;
+  border:none;
   resize: none;
   outline: none;
 }
@@ -81,9 +103,10 @@ textarea::-webkit-scrollbar{
   height: 30px;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.25s linear;
 }
 .todo-info-update-button:hover{
-  background: rgba(138, 43, 226, 0.85);
+  background: rgba(138, 43, 226, 0.80);
 }
 .accept-wrapper{
   display: none;

@@ -44,9 +44,10 @@ body{
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.25s linear;
 }
 .submit-button:hover{
-  background-color: rgba(97, 102, 238, 0.85);
+  background-color: rgba(97, 102, 238, 0.80);
 }
 .todos{
   margin-top: 20px;
