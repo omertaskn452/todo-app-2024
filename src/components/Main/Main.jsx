@@ -4,6 +4,7 @@ import DeleteIcon from "../icons/DeleteIcon/DeleteIcon";
 import EditIcon from "../icons/EditIcon/EditIcon";
 import AcceptIcon from "../icons/AcceptIcon/AcceptIcon";
 import Todo from "../Todo/Todo";
+import MobileTodo from "../icons/MobileTodo/MobileTodo";
 import { nanoid } from "nanoid";
 
 export default function Main() {
@@ -45,6 +46,7 @@ export default function Main() {
           {todoName: newTodoName, id: nanoid(), isUpdating: false ,date: date, time: time}
         ]
       );
+      setNewTodoName("")
     }
     else{
       alert("Todo name must not be empty")
@@ -80,9 +82,14 @@ export default function Main() {
    if((todos.find(todo => todo.id === id).todoName.trim().length) === 0){
     alert("Todo name must not be empty")
    }
-   else(
+   else{
     toggleIsUpdating(id)
-   )
+    setTodos(prevState => {
+      return prevState.map(todo => {
+        return todo.id === id ? {...todo, todoName: todo.todoName.trim()} : todo
+      })
+    })
+   }
   }
 
   const showTodos = () => {
@@ -95,8 +102,8 @@ export default function Main() {
     }
   }
 
-  let todoElements = todos.map((todo) => 
-    <Todo
+  let todoElements = todos.map((todo) => {
+    return (screenSize.width <= 425) ?  <MobileTodo
       name={todo.todoName}
       id={todo.id}
       date={todo.date}
@@ -107,7 +114,19 @@ export default function Main() {
       updateTodo={updateTodo}
       handleTextAreaChange={handleTextAreaChange}
       screenSize={screenSize}
-    />  
+    /> : <Todo
+    name={todo.todoName}
+    id={todo.id}
+    date={todo.date}
+    time={todo.time}
+    isUpdating={todo.isUpdating}
+    deleteTodo={deleteTodo}
+    toggleIsUpdating={toggleIsUpdating}
+    updateTodo={updateTodo}
+    handleTextAreaChange={handleTextAreaChange}
+    screenSize={screenSize}
+  />  
+  }
   )
 
   return(

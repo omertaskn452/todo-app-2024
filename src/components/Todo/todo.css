@@ -30,13 +30,13 @@ div.todo + div.todo {
   width: calc(100% - 10px);
   border-bottom: 1px solid white;
   animation-name: shape-div;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
 }
 @keyframes shape-div{
   0% {width: 0%; margin:0 50%;}
-  25% {width: 25%; margin:0 37.5%;}
+ /*  25% {width: 25%; margin:0 37.5%;}
   50% {width: 50%; margin:0 25%;}
-  75% {width: 75%; margin:0 12.5%;}
+  75% {width: 75%; margin:0 12.5%;} */
   100% {width: calc(100%-10px);margin: 0;}
 }
 .todo-info-title{

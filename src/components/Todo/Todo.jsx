@@ -11,12 +11,13 @@ export default function Todo(props) {
   const handleChange = (e) => {
     props.handleTextAreaChange(props.id, e.target.value)
   }
-/* 
+
   const handleKeyDown = (e) => {
-    if(e.key === "Enter"){
+    if(e.keyCode === 13 && !e.shiftKey){
+      e.preventDefault();
       props.updateTodo(props.id);
     }
-  } */
+  }
 
   const handleFocus = () => {
     setTimeout(() => {
@@ -34,8 +35,6 @@ export default function Todo(props) {
   }
  */
 
-  console.log(props.screenSize.width)
-
   return(
     <div className="todo">
       <div className={`${props.isUpdating ? 'todo-info-enabled' : 'todo-info'}`}>
@@ -43,7 +42,7 @@ export default function Todo(props) {
           value={props.name}
           disabled={props.isUpdating ? false : true}
           onChange={handleChange}
-          /* onKeyDown={handleKeyDown} */
+          onKeyDown={handleKeyDown}
           ref={textAreaRef}
           rows={1}
           onFocus={(e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
@@ -63,9 +62,6 @@ export default function Todo(props) {
       </div>
       <div className={`${props.isUpdating ? 'todo-info-updating' : 'todo-info-updating-disabled'}`}>
         <button onClick={()=>props.updateTodo(props.id)} className="todo-info-update-button">UPDATE</button>
-        <div className="todo-info-icon-wrapper accept-wrapper" onClick={()=>props.updateTodo(props.id)}>
-          <AcceptIcon/>
-        </div>
       </div>
     </div>
   )

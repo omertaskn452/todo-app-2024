@@ -1,0 +1,71 @@
+.todo-mobile{
+  background-color: #25264d;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+div.todo-mobile + div.todo-mobile{
+  margin-top: 10px;
+}
+.todo-mobile-date{
+  font-size: 0.8rem;
+}
+.todo-mobile-info,
+  .todo-mobile-info-enabled{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.todo-mobile-info-enabled::before{
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  border-bottom: 1px solid white;
+  animation-name: shape-div;
+  animation-duration: 0.3s;
+}
+@keyframes shape-div{
+  0% {width: 0%; margin: 0 50%;}
+  100% {width: 100%; margin: 0;}
+}
+.todo-mobile-title, 
+  .todo-mobile-title-updating{
+  background-color: transparent;
+  color: white;
+  padding: 5px 5px 5px 0;
+  font-size: 1rem;
+  font-weight: 400;
+  border: none;
+  resize: none;
+}
+.todo-mobile-title-updating{
+  outline: none;
+}
+.todo-mobile-button-wrapper{
+  display: flex;
+  gap: 10px
+}
+.todo-mobile
+.todo-mobile-edit-button,
+ .todo-mobile-delete-button,
+  .todo-mobile-update-button{
+  flex: 1;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  color: white;
+ }
+ .todo-mobile-edit-button{
+  background-color: rgb(2, 204, 86);
+ }
+.todo-mobile-delete-button{
+  background-color: red;
+}
+.todo-mobile-update-button{
+  width: 100%;
+  background-color: blueviolet;
+}
+.display-none{
+  display: none;
+}
