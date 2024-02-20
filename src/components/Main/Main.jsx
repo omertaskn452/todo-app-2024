@@ -151,7 +151,7 @@ export default function Main() {
           {todoElements}
         </div>
         {/* This button just using for test when developing the app */}
-        <button onClick={showTodos} className="show-todos-button">Show Todos</button>
+        {/* <button onClick={showTodos} className="show-todos-button">Show Todos</button> */}
       </div>
     </div>
   )

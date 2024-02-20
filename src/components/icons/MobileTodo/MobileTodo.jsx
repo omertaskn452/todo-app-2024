@@ -9,7 +9,7 @@ export default function MobileTodo(props) {
     props.handleTextAreaChange(props.id, e.target.value)
   }  
 
-  const handleFocus = () => {
+  const handleFocus = (e) => {
     setTimeout(()=>{
       textAreaRef.current.focus();
     },100)
@@ -35,7 +35,7 @@ export default function MobileTodo(props) {
         ></textarea>
       </div>
       <div className={`${props.isUpdating ? "display-none" : "todo-mobile-button-wrapper"}`}>
-        <button onClick={(e)=>{
+        <button onClick={()=>{
           props.toggleIsUpdating(props.id)
           handleFocus()
           }} className="todo-mobile-edit-button">Edit</button>

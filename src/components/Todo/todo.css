@@ -27,37 +27,22 @@ div.todo + div.todo {
   position: absolute;
   left: 5px;
   bottom: 1rem;
-  width: calc(100% - 10px);
+  width: 100%;
   border-bottom: 1px solid white;
   animation-name: shape-div;
   animation-duration: 0.3s;
 }
 @keyframes shape-div{
   0% {width: 0%; margin:0 50%;}
- /*  25% {width: 25%; margin:0 37.5%;}
-  50% {width: 50%; margin:0 25%;}
-  75% {width: 75%; margin:0 12.5%;} */
-  100% {width: calc(100%-10px);margin: 0;}
 }
 .todo-info-title{
   margin: 0px;
   width: 100%;
   background-color: transparent;
   color: rgb(255, 255, 255);
-  padding: 5px;
+  padding: 5px 0 5px 5px;
   font-size: 1rem;
   border: none;
-  resize: none;
-  outline: none;
-}
-.todo-info-title-enabled{
-  margin: 0px;
-  width: 100%;
-  background-color: transparent;
-  color: white;
-  padding: 5px;
-  font-size: 1rem;
-  border:none;
   resize: none;
   outline: none;
 }
